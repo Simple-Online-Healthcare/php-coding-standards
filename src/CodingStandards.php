@@ -10,18 +10,18 @@ use PhpCsFixer\Finder;
 
 class CodingStandards
 {
-    public static function enable(?array $paths = null): ConfigInterface
+    public static function enable(string $basePath, ?array $paths = null): ConfigInterface
     {
         $finder = Finder::create()
             ->in(
                 $paths ?? [
-                __DIR__ . '/app',
-                __DIR__ . '/config',
-                __DIR__ . '/database',
-                __DIR__ . '/resources',
-                __DIR__ . '/routes',
-                __DIR__ . '/tests',
-                __DIR__ . '/lang',
+                $basePath . '/app',
+                $basePath . '/config',
+                $basePath . '/database',
+                $basePath . '/resources',
+                $basePath . '/routes',
+                $basePath . '/tests',
+                $basePath . '/lang',
             ]
             )
             ->name('*.php')
