@@ -1,0 +1,34 @@
+{
+  "name": "simple-online-healthcare/php-coding-standards",
+  "description": "An Open API generator for PHP 8.x",
+  "type": "library",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Josh Murray",
+      "email": "josh.murray@simpleonlinehealthcare.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "SimpleOnlineHealthcare\\CodingStandards\\": "src"
+    }
+  },
+  "require-dev": {
+    "laravel/framework": "^9.0",
+    "phpunit/phpunit": "^9.5.10",
+    "friendsofphp/php-cs-fixer": "^3.14",
+    "mockery/mockery": "^1.5"
+  },
+  "scripts": {
+    "php-cs-fixer:dummy": "./vendor/bin/php-cs-fixer fix --config=./.php_cs --dry-run",
+    "php-cs-fixer:real": "./vendor/bin/php-cs-fixer fix --config=./.php_cs"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "SimpleOnlineHealthcare\\OpenAPI\\OpenApiServiceProvider"
+      ]
+    }
+  }
+}
