@@ -1,6 +1,6 @@
 {
   "name": "simple-online-healthcare/php-coding-standards",
-  "description": "An Open API generator for PHP 8.x",
+  "description": "A repository for our PHP Coding Standards Ruleset for PHP-CS-Fixer.",
   "type": "library",
   "license": "proprietary",
   "authors": [
