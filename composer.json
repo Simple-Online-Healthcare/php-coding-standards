@@ -15,20 +15,10 @@
     }
   },
   "require-dev": {
-    "laravel/framework": "^9.0",
-    "phpunit/phpunit": "^9.5.10",
-    "friendsofphp/php-cs-fixer": "^3.14",
-    "mockery/mockery": "^1.5"
+    "friendsofphp/php-cs-fixer": "^3.14"
   },
   "scripts": {
-    "php-cs-fixer:dummy": "./vendor/bin/php-cs-fixer fix --config=./.php_cs --dry-run",
-    "php-cs-fixer:real": "./vendor/bin/php-cs-fixer fix --config=./.php_cs"
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "SimpleOnlineHealthcare\\OpenAPI\\OpenApiServiceProvider"
-      ]
-    }
+    "php-cs-fixer:dummy": "./vendor/bin/php-cs-fixer fix --dry-run",
+    "php-cs-fixer:real": "./vendor/bin/php-cs-fixer fix"
   }
 }
