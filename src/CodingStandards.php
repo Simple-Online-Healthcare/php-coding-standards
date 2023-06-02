@@ -9,7 +9,7 @@ use PhpCsFixer\Finder;
 
 class CodingStandards
 {
-    public function enableWithCustomPaths(array $paths): Config
+    public static function enableWithCustomPaths(array $paths): Config
     {
         $self = new self();
 
