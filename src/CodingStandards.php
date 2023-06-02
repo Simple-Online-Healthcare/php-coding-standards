@@ -5,30 +5,47 @@ declare(strict_types=1);
 namespace SimpleOnlineHealthcare\CodingStandards;
 
 use PhpCsFixer\Config;
-use PhpCsFixer\ConfigInterface;
 use PhpCsFixer\Finder;
 
 class CodingStandards
 {
-    public static function enable(string $basePath, ?array $paths = null): ConfigInterface
+    public function enableWithCustomPaths(array $paths): Config
     {
-        $finder = Finder::create()
-            ->in(
-                $paths ?? [
-                $basePath . '/app',
-                $basePath . '/config',
-                $basePath . '/database',
-                $basePath . '/resources',
-                $basePath . '/routes',
-                $basePath . '/tests',
-                $basePath . '/lang',
-            ]
-            )
+        $self = new self();
+
+        $finder = $self->buildFinder($paths);
+
+        return $self->buildConfig($finder);
+    }
+
+    public static function enable(string $basePath): Config
+    {
+        $self = new self();
+
+        $finder = $self->buildFinder([
+            $basePath.'/app',
+            $basePath.'/config',
+            $basePath.'/database',
+            $basePath.'/resources',
+            $basePath.'/routes',
+            $basePath.'/tests',
+            $basePath.'/lang',
+        ]);
+
+        return $self->buildConfig($finder);
+    }
+
+    protected function buildFinder(array $paths): Finder
+    {
+        return Finder::create()
+            ->in($paths)
             ->name('*.php')
             ->ignoreDotFiles(true)
-            ->ignoreVCS(true)
-        ;
+            ->ignoreVCS(true);
+    }
 
+    protected function buildConfig(Finder $finder): Config
+    {
         return (new Config('SOH PHP Coding Standards'))
             ->setRiskyAllowed(true)
             ->setUsingCache(false)
@@ -66,7 +83,6 @@ class CodingStandards
                 // Risky rules
                 'declare_strict_types' => true,
             ])
-            ->setFinder($finder)
-        ;
+            ->setFinder($finder);
     }
 }
