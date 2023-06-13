@@ -54,7 +54,6 @@ class CodingStandards
                 '@Symfony:risky' => true,
 
                 // SOH custom ruleset
-                'class_attributes_separation' => [],
                 'concat_space' => [
                     'spacing' => 'one',
                 ],
