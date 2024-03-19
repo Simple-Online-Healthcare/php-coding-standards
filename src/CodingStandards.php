@@ -29,15 +29,16 @@ class CodingStandards
             $basePath.'/database',
             $basePath.'/routes',
             $basePath.'/tests',
-        ]);
+        ], ['cache']);
 
         return $self->buildConfig($finder);
     }
 
-    protected function buildFinder(array $paths): Finder
+    protected function buildFinder(array $in, array $exclude = []): Finder
     {
         return Finder::create()
-            ->in($paths)
+            ->in($in)
+            ->exclude($exclude)
             ->name('*.php')
             ->ignoreDotFiles(true)
             ->ignoreVCS(true);
