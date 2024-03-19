@@ -24,12 +24,11 @@ class CodingStandards
 
         $finder = $self->buildFinder([
             $basePath.'/app',
+            $basePath.'/bootstrap',
             $basePath.'/config',
             $basePath.'/database',
-            $basePath.'/resources',
             $basePath.'/routes',
             $basePath.'/tests',
-            $basePath.'/lang',
         ]);
 
         return $self->buildConfig($finder);
